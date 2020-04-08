@@ -1,0 +1,16 @@
+<body>
+    <button onclick="functionCall()" id="button1">
+        Click here
+    </button>
+    <script type="text/javascript">
+        document.getElementById("button1").addEventListener("click", function() {
+            console.log("Add Event Listener called")
+        });
+
+        function functionCall() {
+            console.log(
+                "function called"
+            )
+        }
+    </script>
+</body>
