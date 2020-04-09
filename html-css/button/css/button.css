@@ -1,0 +1,6 @@
+#myButton {
+    border: 1 px solid grey;
+    padding: 15px 40px 15px 40px;
+    font-size: 20px;
+    background-color: linear-gradient(grey, white);
+}
