@@ -1,10 +1,14 @@
 def removeDuplicates(nums):
-    for i in range(len(nums)-1):
-            j = i + 1
-            for j in range(len(nums)-1):
-                if nums[i] == nums[j]:
-                    nums.remove(nums[j])
-    return len(nums)
+    angka = nums[0]
+    for i in range(1, len(nums)):
+        if nums[i] == angka:
+            nums[i] = -1
+        else:
+            angka = nums[i]
+    count = nums.count(-1)
+    for i in range(count):
+        nums.remove(-1)
+    return nums
 
 
 print(removeDuplicates([1, 1, 2]))
