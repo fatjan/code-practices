@@ -16,12 +16,9 @@ for i in range(len(report)):
         new_report.append(inside)
         inside = {}
 
-print()
-print(new_report)
-print()
-newlist = sorted(new_report, key=lambda report: report['code'])
-newlist = sorted(newlist, key=lambda report: report['grade'])
-newlist = sorted(newlist, key=lambda report: report['enrollment'])
-newlist = sorted(newlist, key=lambda report: report['name'])
-print(newlist)
-print()
+reports = sorted(new_report, key=lambda report: report['code'])
+for i in range(len(reports)):
+    for k, v in reports[i].items():
+        print(v, end=' ')
+    print()
+
