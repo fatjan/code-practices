@@ -29,7 +29,9 @@ class KthLargest:
     def add(self, val):
         self.nums.append(val)
         self.nums.sort()
+        print(self.nums)
         self.nums.reverse()
+        print(self.nums)
         return self.nums[self.k-1]
 
 

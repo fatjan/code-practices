@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+</head>
+
+<body>
+    <div class="chart">
+        <canvas id="myChart" style="width: 200px;"></canvas>
+        <p class="kalimat"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script>
+        newArr = [];
+        const baseUrl = 'https://covid19.mathdro.id/api/daily';
+        let urls = [
+            'https://covid19.mathdro.id/api/daily/4-10-2020',
+            'https://covid19.mathdro.id/api/daily/4-12-2020',
+            'https://covid19.mathdro.id/api/daily/4-14-2020',
+        ];
+        // map every url to the promise of the fetch
+        let requests = urls.map(url => fetch(url));
+
+        // Promise.all waits until all jobs are resolved
+        let arr = []
+        Promise.all(requests)
+            .then(responses => responses.forEach(
+                async(response) => {
+                    const responseJson = await response.json()
+                    for (let i = 0; i < responseJson.length; i++) {
+                        if (responseJson[i].countryRegion == 'Indonesia') {
+                            arr.push(parseInt(responseJson[i].confirmed))
+                        }
+                    }
+                    console.log('ini hasil akhir arr pake promise ', arr)
+                }
+            ));
+        async() => {
+            await arr
+            console.log('ini arr ', arr)
+        }
+        console.log('ini hasil akhir arr pake promise ', arr)
+        const getDaily = async(tanggal) => {
+            console.log('date ', tanggal)
+            try {
+                const response = await fetch(`${baseUrl}/${tanggal}`);
+                const responseJson = await response.json();
+                for (let i = 0; i < responseJson.length; i++) {
+                    if (responseJson[i].countryRegion == 'Indonesia') {
+                        newArr.push(parseInt(responseJson[i].confirmed))
+                    }
+                }
+                // console.log('newArr di dlem', newArr)
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        const now = new Date();
+        for (let d = new Date(2020, 3, 10); d <= now; d.setDate(d.getDate() + 2)) {
+            const date = new Date(d);
+            const mm = date.getMonth() + 1;
+            const dd = date.getDate();
+            const yy = date.getFullYear();
+            getDaily(`${mm}-${dd}-${yy}`);
+        };
+    </script>
+</body>
+
+</html>
