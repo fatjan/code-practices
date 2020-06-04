@@ -11,3 +11,6 @@ import time
 start_time = time.time()
 rec_russian(2**40,2**40)
 print("--- %s seconds ---" % (time.time() - start_time))
+
+
+  

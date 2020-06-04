@@ -1,8 +1,0 @@
-Release Note v1.3.0 2 May 2020
-
-1. feature/INV-733-invoice-editor-on-product-page
-2. feature/INV-781-change-wording-to-indonesian
-3. feature/INV-827-improve-userflow-submenu
-4. feature/INV-848-enhance-templaye-invoice-print-billing
-5. feature/INV-870-enhance-invoice-editor-according-to-suggested-layout
-
