@@ -58,7 +58,7 @@ def get_pins(observed):
     import itertools
 
     if len(adjs) == 1:
-        return adjs
+        return adjs[0]
     elif len(adjs) == 2:
         hasil = [''.join(i) for i in itertools.product(adjs[0], adjs[1])]
         return hasil
