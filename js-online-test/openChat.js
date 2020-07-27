@@ -28,7 +28,7 @@ function solution(record) {
     newSentences.forEach(element => {
             itemSeparated = element.split(' ');
             key = itemSeparated[0];
-            userName = users[key]; // change the user id with its latest name
+            userName = users[key]; // replace the user id with its name
             sentence = element.split(key).join(userName);
             answer.push(sentence);
         }
@@ -37,5 +37,8 @@ function solution(record) {
     return answer;
 };
 
-const data = ["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"];
-console.log(solution(data));
+// const data = ["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"];
+// console.log(solution(data));
+
+// time complexity is O(n) because we have single loop twice. 
+// N is the number array of record
