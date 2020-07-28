@@ -15,6 +15,7 @@ function solution(N, users) {
         }
     );
 
+    // get the failure rates
     const totalUser = users.length;
     let remainder = totalUser;
     let failureRates = {};
@@ -47,3 +48,7 @@ function solution(N, users) {
 const N = 5
 const users = [2,1,2,6,2,4,3,3]
 console.log(solution(N, users))
+
+
+// the time complexity will be O(n) because in dominance we have single loop
+// N will be the number of users because we place each user to its particular stage
